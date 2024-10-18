@@ -41,3 +41,15 @@ http://127.0.0.1:8000/vehicles/2020
 ```
 
 Note: year must be 4 digits.
+
+#### Example Output
+```
+[
+    {
+        "make":"AUDI",
+        "total_vehicles":7,
+        "average_range":3.2857142857142856
+    }, 
+    ...
+]      
+```

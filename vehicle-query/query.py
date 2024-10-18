@@ -2,13 +2,19 @@ import typing as t
 
 import pandas as pd
 import requests
+from fastapi import HTTPException
 
 BASE_URL = "https://data.wa.gov/resource/f6w7-q2d2.json"
 
 
 def fetch_ev_data(model_year: int) -> list[dict[str, t.Any]]:
     year_url = f"{BASE_URL}?model_year={model_year}"
-    r = requests.get(year_url)
+    try:
+        r = requests.get(year_url)
+    except:
+        raise HTTPException(
+            status_code=500, detail="Failed to fetch data from data.wa.gov"
+        )
     return r.json()
 
 

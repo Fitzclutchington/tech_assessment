@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2 class="text-center">Electric Vehicles Data for Model Year {{ model_year }}</h2>
+
+    <table class="table table-striped table-bordered mt-4">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">Make</th>
+                <th scope="col">Total Vehicles</th>
+                <th scope="col">Average Range (miles)</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vehicle in ev_data %}
+            <tr>
+                <td>{{ vehicle.make }}</td>
+                <td>{{ vehicle.total_vehicles }}</td>
+                <td>{{ vehicle.average_range | round(2) }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

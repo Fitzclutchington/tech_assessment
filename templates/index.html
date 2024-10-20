@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <!-- Main Content: Form and Images -->
+        <div class="col-12">
+            <div class="mb-4">
+                <!-- Form to submit the date -->
+                <form action="/submit-year" method="post" class="row g-3">
+                    <div class="col-auto">
+                        <label for="modelYear" class="col-form-label">Enter Model Year:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="number" class="form-control" id="modelYear" name="model_year" placeholder="e.g. 2020">
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Stacked Images -->
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400" alt="Image 1" class="img-fluid">
+                <img src="https://via.placeholder.com/800x400" alt="Image 2" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

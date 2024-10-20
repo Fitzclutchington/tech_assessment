@@ -1,11 +1,14 @@
-from fastapi import FastAPI, Request, Form
+from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from .query import fetch_ev_data, format
 from .schemas import EVDataResponse
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
 templates = Jinja2Templates(directory="templates")
 
 
@@ -22,7 +25,7 @@ async def submit_year(model_year: int = Form(...)):
 
 @app.get("/vehicles", response_class=HTMLResponse)
 async def vehicles(request: Request, model_year: int | None = None):
-    # TODO: handle case where year is None, need some refactoring 
+    # TODO: handle case where year is None, need some refactoring
     # consider future query args like model or make
     ev_data = fetch_ev_data(model_year)
 

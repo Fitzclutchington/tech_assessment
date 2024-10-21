@@ -3,11 +3,9 @@
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <!-- Form Column (Full Width) -->
         <div class="col-md-8">
             <h1>Submit Model Year</h1>
 
-            <!-- Instructional div -->
             <div class="alert alert-info" role="alert">
                 Please enter a model year (e.g., 2020) to retrieve information about electric vehicles from Washington's Department of Licensing.
                 <br><br>
@@ -20,8 +18,7 @@
                 Once you submit, the results will be displayed on the next page.
             </div>
 
-            <!-- Form to submit the model year -->
-            <form action="/submit-form" method="post">
+            <form action="/submit-year" method="post">
                 <div class="mb-3">
                     <label for="modelYear" class="form-label">Enter Model Year:</label>
                     <input type="number" class="form-control" id="modelYear" name="model_year" placeholder="e.g., 2020" required>

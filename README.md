@@ -2,6 +2,10 @@
 
 This FastAPI app retrieves and aggregates electric vehicle data from the Washington State Department of Licensing. The app returns the number of vehicles and the average electric range for a specified model year, grouped by vehicle make.
 
+## Hosted app
+The current version of the app is hosted here:
+https://tech-assessment-avtc.onrender.com/
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
@@ -33,23 +37,7 @@ pip install -r requirements.txt
 uvicorn vehicle-query.app:app --reload
 ```
 
-### 5. Example Request
+### 5. Example Usage
 To get data for the model year 2020, make a request to:
 
-```
-http://127.0.0.1:8000/vehicles/2020
-```
-
-Note: year must be 4 digits.
-
-#### Example Output
-```
-[
-    {
-        "make":"AUDI",
-        "total_vehicles":7,
-        "average_range":3.2857142857142856
-    }, 
-    ...
-]      
-```
+![Demo](static/images/example.gif)

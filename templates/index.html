@@ -1,45 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Submit Model Year</h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <!-- Form Column (Full Width) -->
+        <div class="col-md-8">
+            <h1>Submit Model Year</h1>
 
-<!-- Instructional div -->
-<div class="alert alert-info" role="alert">
-    Please enter a model year (e.g., 2020) to retrieve information about electric vehicles from Washington's Department of Licensing.
-    <br><br>
-    The data will include:
-    <ul>
-        <li>The total number of electric vehicles for that model year</li>
-        <li>The average electric range (in miles) of vehicles for that year</li>
-        <li>Data grouped by the make of the vehicle (e.g., Tesla, Nissan)</li>
-    </ul>
-    Once you submit, the results will be displayed on the next page.
-</div>
-    
-<div class="container-fluid">
-    <div class="row">
-        <!-- Main Content: Form and Images -->
-        <div class="col-12">
-            <div class="mb-4">
-                <!-- Form to submit the date -->
-                <form action="/submit-year" method="post" class="row g-3">
-                    <div class="col-auto">
-                        <label for="modelYear" class="col-form-label">Enter Model Year:</label>
-                    </div>
-                    <div class="col-auto">
-                        <input type="number" class="form-control" id="modelYear" name="model_year" placeholder="e.g. 2020">
-                    </div>
-                    <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mb-3">Submit</button>
-                    </div>
-                </form>
+            <!-- Instructional div -->
+            <div class="alert alert-info" role="alert">
+                Please enter a model year (e.g., 2020) to retrieve information about electric vehicles from Washington's Department of Licensing.
+                <br><br>
+                The data will include:
+                <ul>
+                    <li>The total number of electric vehicles for that model year</li>
+                    <li>The average electric range (in miles) of vehicles for that year</li>
+                    <li>Data grouped by the make of the vehicle (e.g., Tesla, Nissan)</li>
+                </ul>
+                Once you submit, the results will be displayed on the next page.
             </div>
 
-            <!-- Stacked Images -->
-            <div class="image-container">
-                <img src="/static/images/EV.jpg" alt="Image 2" class="img-fluid" width=800 height=400>
-                <img src="/static/images/monster_truck.jpg" alt="Image 1" class="img-fluid" width=800 height=400>
-            </div>
+            <!-- Form to submit the model year -->
+            <form action="/submit-form" method="post">
+                <div class="mb-3">
+                    <label for="modelYear" class="form-label">Enter Model Year:</label>
+                    <input type="number" class="form-control" id="modelYear" name="model_year" placeholder="e.g., 2020" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </div>
     </div>
 </div>
